@@ -1,4 +1,4 @@
-import sys, subprocess, winreg
+import sys, subprocess, winreg, configparser
 
 #A value of 3 mean use manual settings. A value of 9 mean use automatic settings. A value of 1 means it is not enabled.
 def proxy_on():
@@ -22,14 +22,19 @@ def proxy_off():
     print('socks off')
 
 #check arguments
-if len(sys.argv) < 5:
-    print('''\nToo few arguments. Usage: socks5.py <ip> <port> <login> <password>''')
+if len(sys.argv) < 3:
+    print('''\nToo few arguments. Usage: socks5.py <config_section> <ip> ''')
     exit()
 
-ip = sys.argv[1]
-port = sys.argv[2]
-login = sys.argv[3]
-password = sys.argv[4]
+cfg = configparser.ConfigParser()
+cfg.read('config.ini')
+
+config = sys.argv[1]
+ip = sys.argv[2]
+
+login = cfg[config]['LOGIN']
+password = cfg[config]['PASSWORD']
+port = cfg[config]['PORT']
 
 #print arguments
 #for argument in  sys.argv:
