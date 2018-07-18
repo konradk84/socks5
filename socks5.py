@@ -1,4 +1,3 @@
-
 import sys, subprocess, winreg
 
 #A value of 3 mean use manual settings. A value of 9 mean use automatic settings. A value of 1 means it is not enabled.
