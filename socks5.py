@@ -1,4 +1,3 @@
-#plink.exe -ssh -P 10022 -l admin -pw ala1289 -D 127.0.0.1:8080 10.60.1.150
 
 import sys, subprocess, winreg
 
