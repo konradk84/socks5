@@ -43,6 +43,7 @@ port = cfg[config]['PORT']
 #run ssh dynamic port forwarding
 try:
     proxy_on()
+    #export plink path to config file
     cmd = "C:\\tools\plink.exe -ssh -P " +port + " -l " + login + " -pw " + password + " -D 127.0.0.1:8080 " +ip
     rv = subprocess.call(cmd, shell=True)
     print("\nreturn value: ", rv)
